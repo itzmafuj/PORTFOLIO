@@ -1,4 +1,5 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+
 <title>Mafuj Hossain</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -300,6 +301,38 @@ img, svg { max-width: 100%; }
 .soc .go { margin-left: auto; width: 1.4rem; height: 1.4rem; flex: none; stroke: var(--ink); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 @media (max-width: 860px) { .contact-grid { grid-template-columns: minmax(0, 1fr); } }
 
+/* ── booking ── */
+.book { border-bottom: var(--bw) solid var(--line); padding-block: clamp(3rem, 7vw, 5rem); }
+.book-grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: clamp(2.5rem, 6vw, 5rem); align-items: start; }
+.book h2 { font-size: clamp(1.9rem, 4vw, 2.5rem); font-weight: 600; margin-bottom: 1rem; }
+.book-steps { list-style: none; display: grid; gap: 1.1rem; margin-top: 2rem; counter-reset: s; }
+.book-steps li { display: grid; grid-template-columns: 2.6rem minmax(0, 1fr); gap: 1rem; align-items: start; counter-increment: s; }
+.book-steps li::before { content: counter(s); display: grid; place-items: center; width: 2.6rem; height: 2.6rem; border: 2px solid var(--line); border-radius: 50%; background: var(--lime); color: var(--on-color); font: 700 1.1rem var(--font-head); box-shadow: 3px 3px 0 var(--shadow); }
+.book-steps li:nth-child(2)::before { background: var(--purple); }
+.book-steps li:nth-child(3)::before { background: var(--mint); }
+.book-steps b { display: block; font-family: var(--font-head); font-weight: 500; font-size: 1.1rem; }
+.book-steps span { color: var(--muted); }
+.form-card { position: relative; background: var(--surface); border: var(--bw) solid var(--line); box-shadow: 8px 8px 0 var(--shadow); }
+.form-head { background: var(--purple); color: var(--on-color); border-bottom: var(--bw) solid var(--line); padding: 1rem 1.25rem; font: 600 1.25rem var(--font-head); display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+.form-head small { font: 500 .72rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
+form.book-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.1rem 1.25rem; padding: clamp(1.1rem, 3vw, 1.75rem); }
+.fld { display: grid; gap: .4rem; min-width: 0; }
+.fld.wide { grid-column: 1 / -1; }
+.fld label { font: 500 .75rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.fld label i { font-style: normal; color: var(--ink); }
+.fld input, .fld select, .fld textarea { width: 100%; font: 500 1rem var(--font-body); color: var(--ink); background: var(--bg); border: 2px solid var(--line); border-radius: .25rem; padding: .7rem .8rem; min-height: 2.9rem; box-shadow: 3px 3px 0 var(--shadow); transition: transform .15s, box-shadow .15s; }
+.fld textarea { min-height: 6.5rem; resize: vertical; }
+.fld input:focus, .fld select:focus, .fld textarea:focus { outline: none; transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--shadow); background: var(--white); color: #000; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form-foot { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
+.form-foot .btn { border-width: 2px; }
+.form-foot .btn[disabled] { opacity: .6; cursor: wait; }
+.status { font-weight: 500; min-width: 0; }
+.status.ok { background: var(--mint); color: var(--on-color); border: 2px solid var(--line); padding: .5rem .8rem; box-shadow: 3px 3px 0 var(--shadow); }
+.status.err { background: var(--pink); color: var(--on-color); border: 2px solid var(--line); padding: .5rem .8rem; box-shadow: 3px 3px 0 var(--shadow); }
+@media (max-width: 860px) { .book-grid { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 520px) { form.book-form { grid-template-columns: minmax(0, 1fr); } }
+
 /* ── footer ── */
 .foot { background: var(--foot-bg); color: var(--foot-fg); border-top: var(--bw) solid var(--line); padding-block: 2.5rem; }
 .foot-in { display: flex; align-items: center; gap: 1rem 1.25rem; flex-wrap: wrap; }
@@ -332,10 +365,11 @@ img, svg { max-width: 100%; }
         <a href="#work">My Work</a>
         <a href="#build">What I Build</a>
         <a href="#about">About</a>
+        <a href="#book">Book a Call</a>
         <a href="#contact">Contact</a>
       </div>
       <div class="nav-end">
-        <a class="nav-cta" href="#contact">Let's Talk</a>
+        <a class="nav-cta" href="#book">Book a Call</a>
         <button class="icon-cell theme" id="theme" type="button" aria-label="Switch light and dark theme">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
         </button>
@@ -349,7 +383,7 @@ img, svg { max-width: 100%; }
       <a href="#build">What I Build</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
-      <a href="#contact">Let's Talk</a>
+      <a href="#book">Book a Call</a>
     </div>
   </div>
 </header>
@@ -362,7 +396,7 @@ img, svg { max-width: 100%; }
         <h1>I Build Things People Actually <span class="mark">Use.</span></h1>
         <p class="lede">I'm a developer and the founder of Mfzx.Build. I study BCA at Malda College and build web and app products for Gen Z in India.</p>
         <div class="hero-actions">
-          <a class="btn purple" href="#contact">Get In Touch <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+          <a class="btn purple" href="#book">Book a Call <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
           <a class="btn lime" href="#work">See My Work</a>
         </div>
         <p class="where">Gouria, Malda &middot; West Bengal &middot; IST (UTC+05:30)</p>
@@ -394,7 +428,7 @@ img, svg { max-width: 100%; }
           <article class="cell">
             <div class="orb" style="background:var(--lime)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><line x1="8" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="13" y2="13"/></svg></div>
             <h3>Real-time Apps</h3>
-            <p>Group chats, polls and call signaling over Socket.io and WebRTC. NexChat Addaa is where I put it all together.</p>
+            <p>Live chat, polls and call signaling over Socket.io and WebRTC, for apps that need to feel instant.</p>
           </article>
           <article class="cell">
             <div class="orb" style="background:var(--mint)"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg></div>
@@ -451,26 +485,6 @@ img, svg { max-width: 100%; }
     <div class="wrap">
       <div class="frame">
         <article class="proj">
-          <div class="proj-art art-chat" role="img" aria-label="Illustration of a group chat with a poll">
-            <div class="chat">
-              <div class="bub in">Adda at 8?</div>
-              <div class="bub out">Count me in</div>
-              <div class="poll">
-                <b>Poll &middot; Where?</b>
-                <div>Terrace<div class="bar"><i style="width:72%"></i></div></div>
-                <div>Cafe<div class="bar"><i style="width:34%"></i></div></div>
-              </div>
-            </div>
-          </div>
-          <div class="proj-body">
-            <div class="tags"><span class="tag" style="background:var(--yellow)">Chat App</span><span class="tag" style="background:var(--pink)">Real-time</span></div>
-            <h3>NexChat Addaa</h3>
-            <p>A WhatsApp-style chat app for Indian Gen Z. It has group chats, media preview, polls, disappearing messages and WebRTC call signaling, on a React front end with a Node.js, Express, Socket.io and MongoDB back end.</p>
-            <p class="stackline">React &middot; Node.js &middot; Express &middot; Socket.io &middot; MongoDB &middot; WebRTC</p>
-          </div>
-        </article>
-
-        <article class="proj rev">
           <div class="proj-art art-mess" role="img" aria-label="Illustration of a weekly meal log grid">
             <div class="ui">
               <div class="ui-title"><span>MESS BUDDY</span><span class="dot"></span></div>
@@ -486,11 +500,11 @@ img, svg { max-width: 100%; }
             <h3>Mess Buddy</h3>
             <p>A meal and expense tracker for shared messes and PGs. It logs meals, bazar expenses and deposits, supports admin and viewer roles across multiple messes, takes UPI QR payments, exports PDF reports and ships updates over the air.</p>
             <p class="stackline">Firebase &middot; Web app</p>
-            <a class="btn lime small" href="https://messbuddy.rechargetravelpoint.online/" target="_blank" rel="noopener">Open Mess Buddy <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+            <a class="btn lime small" href="https://itzmafuj.github.io/MESS-BUDDY/" target="_blank" rel="noopener">Open Mess Buddy <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
           </div>
         </article>
 
-        <article class="proj">
+        <article class="proj rev">
           <div class="proj-art art-bot" role="img" aria-label="Illustration of a bot likelihood meter">
             <div class="ui">
               <div class="ui-title"><span>BOTSCOPE v2.0</span><span class="dot"></span></div>
@@ -512,7 +526,7 @@ img, svg { max-width: 100%; }
           </div>
         </article>
 
-        <article class="proj rev">
+        <article class="proj">
           <div class="proj-art art-pdf" role="img" aria-label="126 features in 13 categories">
             <div class="big">
               <strong>126</strong>
@@ -555,6 +569,52 @@ img, svg { max-width: 100%; }
             <span class="chip">React</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">Socket.io</span><span class="chip">MongoDB</span><span class="chip">Firebase</span><span class="chip">Flask</span><span class="chip">WebRTC</span>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="book" class="book">
+    <div class="wrap book-grid">
+      <div>
+        <h2>Book an Appointment</h2>
+        <p class="lead">Want to talk about a project, a collaboration or Mfzx.Build? Pick a day and a time that suit you and I'll get back to you to confirm.</p>
+        <ol class="book-steps">
+          <li><div><b>Send a request</b><span>Fill in the form with your preferred date and time.</span></div></li>
+          <li><div><b>I confirm</b><span>I'll reply by email or WhatsApp to lock the slot.</span></div></li>
+          <li><div><b>We talk</b><span>All times are Indian Standard Time (IST).</span></div></li>
+        </ol>
+      </div>
+      <div class="form-card">
+        <div class="form-head"><span>Appointment Request</span><small>IST</small></div>
+        <form class="book-form" id="bookForm" novalidate>
+          <div class="fld"><label for="f-name">Name <i>*</i></label><input id="f-name" name="name" type="text" autocomplete="name" required maxlength="80"></div>
+          <div class="fld"><label for="f-email">Email <i>*</i></label><input id="f-email" name="email" type="email" autocomplete="email" required maxlength="120"></div>
+          <div class="fld"><label for="f-phone">Phone / WhatsApp</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" maxlength="20"></div>
+          <div class="fld">
+            <label for="f-topic">Topic <i>*</i></label>
+            <select id="f-topic" name="topic" required>
+              <option value="">Choose one</option>
+              <option>Project or app idea</option>
+              <option>Collaboration</option>
+              <option>Mfzx.Build</option>
+              <option>Just a chat</option>
+            </select>
+          </div>
+          <div class="fld"><label for="f-date">Preferred date <i>*</i></label><input id="f-date" name="date" type="date" required></div>
+          <div class="fld">
+            <label for="f-time">Preferred time (IST) <i>*</i></label>
+            <select id="f-time" name="time" required>
+              <option value="">Choose a time</option>
+              <option>10:00 AM</option><option>11:00 AM</option><option>12:00 PM</option><option>2:00 PM</option><option>3:00 PM</option><option>4:00 PM</option><option>5:00 PM</option><option>6:00 PM</option><option>7:00 PM</option><option>8:00 PM</option>
+            </select>
+          </div>
+          <div class="fld wide"><label for="f-msg">What would you like to talk about?</label><textarea id="f-msg" name="message" maxlength="600"></textarea></div>
+          <div class="fld hp" aria-hidden="true"><label for="f-site">Leave this empty</label><input id="f-site" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+          <div class="form-foot">
+            <button class="btn purple" id="bookBtn" type="submit">Request Appointment <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></button>
+            <p class="status" id="bookStatus" role="status" aria-live="polite"></p>
+          </div>
+        </form>
       </div>
     </div>
   </section>
@@ -660,7 +720,46 @@ img, svg { max-width: 100%; }
       selectEmail();
     }
   });
+  // ── appointment booking ──
+  // Paste your Google Apps Script web app URL (ends in /exec) between the quotes.
+  var SHEET_URL = "";
+  var CONTACT_EMAIL = "mafujhossaindcsa.in@gmail.com";
+  var form = document.getElementById('bookForm');
+  var btn = document.getElementById('bookBtn');
+  var statusEl = document.getElementById('bookStatus');
+  var dateEl = document.getElementById('f-date');
+  (function () {
+    var d = new Date(); d.setDate(d.getDate() + 1);
+    var m = String(d.getMonth() + 1).padStart(2, '0'), day = String(d.getDate()).padStart(2, '0');
+    dateEl.min = d.getFullYear() + '-' + m + '-' + day;
+  })();
+  function say(msg, kind) { statusEl.textContent = msg; statusEl.className = 'status' + (kind ? ' ' + kind : ''); }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = form.elements;
+    if (f.website.value) return; // bot trap
+    var data = {
+      name: f.name.value.trim(), email: f.email.value.trim(), phone: f.phone.value.trim(),
+      topic: f.topic.value, date: f.date.value, time: f.time.value, message: f.message.value.trim()
+    };
+    if (!data.name || !data.email || !data.topic || !data.date || !data.time) { say('Please fill in every field marked *.', 'err'); return; }
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(data.email)) { say('That email address looks wrong.', 'err'); return; }
+    if (data.date < dateEl.min) { say('Please choose a date from tomorrow onward.', 'err'); return; }
+    if (!SHEET_URL) {
+      var body = 'Name: ' + data.name + '\nEmail: ' + data.email + '\nPhone: ' + data.phone + '\nTopic: ' + data.topic +
+                 '\nDate: ' + data.date + '\nTime (IST): ' + data.time + '\n\n' + data.message;
+      window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent('Appointment request: ' + data.name) + '&body=' + encodeURIComponent(body);
+      say('Opening your email app with the request filled in. Press send there to finish.', 'ok');
+      return;
+    }
+    btn.disabled = true; say('Sending...', '');
+    fetch(SHEET_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(data) })
+      .then(function () { form.reset(); say('Request sent. I will confirm by email or WhatsApp soon.', 'ok'); })
+      .catch(function () { say('Could not send. Please email me at ' + CONTACT_EMAIL + ' instead.', 'err'); })
+      .then(function () { btn.disabled = false; });
+  });
 })();
 </script>
+
 
 </body></html>
